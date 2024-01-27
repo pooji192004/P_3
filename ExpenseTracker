@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class ExpenseTracker {
+    private static double totalExpenses = 0;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Expense Tracker Menu:");
+            System.out.println("1. Add Expense");
+            System.out.println("2. View Total Expenses");
+            System.out.println("3. Exit");
+
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addExpense(scanner);
+                    break;
+                case 2:
+                    viewTotalExpenses();
+                    break;
+                case 3:
+                    System.out.println("Exiting Expense Tracker. Goodbye!");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        }
+    }
+
+    private static void addExpense(Scanner scanner) {
+        System.out.print("Enter the expense amount: ");
+        double expenseAmount = scanner.nextDouble();
+        totalExpenses += expenseAmount;
+        System.out.println("Expense added successfully.");
+    }
+
+    private static void viewTotalExpenses() {
+        System.out.println("Total Expenses: $" + totalExpenses);
+    }
+}
